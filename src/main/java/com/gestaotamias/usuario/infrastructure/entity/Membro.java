@@ -1,4 +1,4 @@
-package com.gestaotamias.usuario;
+package com.gestaotamias.usuario.infrastructure.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -50,4 +50,25 @@ public class Membro implements UserDetails {
     public String getUsername() {
         return login;
     }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
 }
