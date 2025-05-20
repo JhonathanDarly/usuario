@@ -36,6 +36,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/membro/login", "/auth").permitAll()
                         .requestMatchers(HttpMethod.POST, "/membro").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/tipoEntrada").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/tipoEntrada", "/tipoEntrada/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/tipoEntrada", "/tipoEntrada/**").permitAll()
                         .requestMatchers(
                                 "/resources/**",
                                 "/static/**",
