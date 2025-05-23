@@ -12,26 +12,26 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class TipoEntradaService {
 
-    private final TipoEntradaRepository TipoEntradaRepository;
+    private final TipoEntradaRepository tipoEntradaRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public TipoEntrada salvarTipoEntrada(TipoEntrada TipoEntrada){
-        if (TipoEntradaRepository.existsByNome(TipoEntrada.getNome())){
+    public TipoEntrada salvarTipoEntrada(TipoEntrada tipoEntrada){
+        if (tipoEntradaRepository.existsByNome(tipoEntrada.getNome())){
             throw new IllegalArgumentException("Já existe um TipoEntrada com este nome.");
         }
 
-        return TipoEntradaRepository.save(TipoEntrada);
+        return tipoEntradaRepository.save(tipoEntrada);
     }
 
     public TipoEntrada buscarTipoEntradaPorNome(String nome){
-        return TipoEntradaRepository.findByNome(nome).orElseThrow(() -> new ResourceNotFoundException("Nome não encontrado! " + nome));
+        return tipoEntradaRepository.findByNome(nome).orElseThrow(() -> new ResourceNotFoundException("Nome não encontrado! " + nome));
     }
 
     public void deletarTipoEntradaPorNome(String nome){
-        TipoEntradaRepository.deleteByNome(nome);
+        tipoEntradaRepository.deleteByNome(nome);
     }
 
     public TipoEntrada buscarTipoEntradaPorId(Long id) {
-        return TipoEntradaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("ID não encontrado! " + id));
+        return tipoEntradaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("ID não encontrado! " + id));
     }
 }

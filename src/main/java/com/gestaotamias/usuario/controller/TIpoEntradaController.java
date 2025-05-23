@@ -15,30 +15,30 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class TIpoEntradaController {
 
-    private final TipoEntradaService TipoEntradaService;
+    private final TipoEntradaService tipoEntradaService;
 
     private final JwtUtil jwtUtil;
 
     @PostMapping
-    public ResponseEntity<TipoEntrada> salvarTipoEntrada(@RequestBody TipoEntrada TipoEntrada) {
-        TipoEntrada salvo = TipoEntradaService.salvarTipoEntrada(TipoEntrada);
+    public ResponseEntity<TipoEntrada> salvarTipoEntrada(@RequestBody TipoEntrada tipoEntrada) {
+        TipoEntrada salvo = tipoEntradaService.salvarTipoEntrada(tipoEntrada);
         return ResponseEntity.ok(salvo);
     }
 
 
     @GetMapping
     public ResponseEntity<TipoEntrada> buscarTipoEntradaPorNome(@RequestParam("nome") String nome) {
-        return ResponseEntity.ok(TipoEntradaService.buscarTipoEntradaPorNome(nome));
+        return ResponseEntity.ok(tipoEntradaService.buscarTipoEntradaPorNome(nome));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<TipoEntrada> buscarTipoEntradaPorId(@PathVariable Long id) {
-        return ResponseEntity.ok(TipoEntradaService.buscarTipoEntradaPorId(id));
+        return ResponseEntity.ok(tipoEntradaService.buscarTipoEntradaPorId(id));
     }
 
     @DeleteMapping("/{nome}")
     public ResponseEntity<Void> deletaTipoEntradaPorNome(@PathVariable String nome) {
-        TipoEntradaService.deletarTipoEntradaPorNome(nome);
+        tipoEntradaService.deletarTipoEntradaPorNome(nome);
         return ResponseEntity.ok().build();
     }
 }

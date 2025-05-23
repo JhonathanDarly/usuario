@@ -1,10 +1,13 @@
 package com.gestaotamias.usuario.infrastructure.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 import java.time.LocalDate;
-import java.util.Date;
 
 
 @Entity
@@ -12,26 +15,20 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table (name = "entrada")
-public class Entrada {
+@Table (name = "saida")
+public class Saida {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "data_lancamento", length = 20)
-    private Date dataLancamento;
+    private LocalDate dataLancamento;
 
     @ManyToOne
-    @JoinColumn(name = "membro_id")
-    private Membro membro;
-
-    @ManyToOne
-    @JoinColumn(name = "tipoEntrada_id")
-    private  TipoEntrada tipoEntrada;
+    @JoinColumn(name = "tipoSaida_id")
+    private TipoSaida tipoSaida;
 
     @Column(name = "valor")
-    private double valor;
-
-
+    private Double valor;
 }

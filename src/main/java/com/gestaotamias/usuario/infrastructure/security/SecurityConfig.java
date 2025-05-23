@@ -39,6 +39,15 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/tipoEntrada").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/tipoEntrada", "/tipoEntrada/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/tipoEntrada", "/tipoEntrada/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/entrada").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/entrada", "/entrada/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/entrada", "/entrada/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/tipoSaida").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/tipoSaida", "/tipoSaida/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/tipoSaida", "/tipoSaida/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/saida").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/saida", "/saida/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/saida", "/saida/**").permitAll()
                         .requestMatchers(
                                 "/resources/**",
                                 "/static/**",
